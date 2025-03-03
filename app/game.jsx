@@ -66,8 +66,8 @@ export default function GameScreen() {
           </TouchableOpacity>
         ))}
       </View>
-      {winner && <Button title="Reset Game" onPress={resetGame} color="#ff6347" />}
-      <Button title="View Stats" onPress={() => setStatsVisible(true)} />
+      {winner && <TouchableOpacity style={styles.button} onPress={resetGame}><Text style={styles.buttonText}>Reset Game</Text></TouchableOpacity>}
+      <TouchableOpacity style={styles.button} onPress={() => setStatsVisible(true)}><Text style={styles.buttonText}>View Stats</Text></TouchableOpacity>
 
       {/* Stats Modal */}
       <Modal visible={statsVisible} animationType="slide" transparent>
@@ -78,7 +78,7 @@ export default function GameScreen() {
             <Text style={styles.stat}>X Wins: {wins.X}</Text>
             <Text style={styles.stat}>O Wins: {wins.O}</Text>
             <Text style={styles.stat}>Draws: {draws}</Text>
-            <Button title="Close" onPress={() => setStatsVisible(false)} color="#ff6347" />
+            <TouchableOpacity style={styles.button} onPress={() => setStatsVisible(false)}><Text style={styles.buttonText}>Close</Text></TouchableOpacity>
           </View>
         </View>
       </Modal>
@@ -87,13 +87,16 @@ export default function GameScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#121212', justifyContent: 'center', alignItems: 'center', paddingHorizontal: 20 },
-  title: { fontSize: 24, fontWeight: 'bold', color: '#ffffff', marginBottom: 10 },
-  status: { fontSize: 20, color: '#ffffff', marginBottom: 20 },
-  board: { width: 300, height: 300, flexDirection: 'row', flexWrap: 'wrap' },
-  cell: { width: '33.3%', height: '33.3%', justifyContent: 'center', alignItems: 'center', borderWidth: 2, borderColor: '#ffffff' },
-  cellText: { fontSize: 36, color: '#ffffff' },
-  modalContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.5)' },
-  modalContent: { backgroundColor: '#222', padding: 20, borderRadius: 10, alignItems: 'center' },
-  stat: { fontSize: 18, color: '#ffffff', marginBottom: 10 },
+  container: { flex: 1, backgroundColor: '#1E1E1E', justifyContent: 'center', alignItems: 'center', padding: 20 },
+  title: { fontSize: 28, fontWeight: 'bold', color: '#FFD700', marginBottom: 20 },
+  status: { fontSize: 20, color: '#FFFFFF', marginBottom: 20, paddingHorizontal: 10, textAlign: 'center' },
+  board: { width: 320, height: 320, flexDirection: 'row', flexWrap: 'wrap', borderRadius: 10, overflow: 'hidden' },
+  cell: { width: '33.3%', height: '33.3%', justifyContent: 'center', alignItems: 'center', borderWidth: 2, borderColor: '#FFD700', backgroundColor: '#333' },
+  cellText: { fontSize: 36, fontWeight: 'bold', color: '#FFD700' },
+  button: { backgroundColor: '#FF4500', paddingVertical: 12, paddingHorizontal: 20, borderRadius: 8, marginTop: 15, alignItems: 'center', width: 200 },
+  buttonText: { fontSize: 18, fontWeight: 'bold', color: '#FFFFFF' },
+  modalContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.7)' },
+  modalContent: { backgroundColor: '#292929', padding: 25, borderRadius: 15, alignItems: 'center', width: 300 },
+  stat: { fontSize: 20, color: '#FFFFFF', marginBottom: 10 },
 });
+ 
