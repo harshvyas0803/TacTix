@@ -6,7 +6,7 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to Tic-Tac-Toe</Text>
+      <Text style={styles.title}>Welcome to TacTix</Text>
       <Button title="Start Game" onPress={() => router.push('/game')} />
     </View>
   );
